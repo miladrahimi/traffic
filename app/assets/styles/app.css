@@ -1,0 +1,9 @@
+aside {
+    background: #39f;
+}
+
+aside a {
+    text-decoration: none;
+    display: block;
+    text-align: center;
+}
