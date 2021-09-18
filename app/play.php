@@ -52,12 +52,16 @@ try {
         $time = Carbon::createFromDate($y, $m, $d);
 
         for ($i = 5; true; $i++, $time->addDay()) {
+            if (jalali($time, 'yyyy/MM/dd') == jalali(Carbon::now(), 'yyyy/MM/dd')) {
+                break;
+            }
+
             if (empty($sheet->getCell("A$i")->getValue())) {
                 $time->setHour(8)->setMinute(random_int(15, 50))->format('H:i');
 
                 $end = $time->clone()->addHours(9)->addMinutes(random_int(0, 120));
                 $duration = $time->clone()->setHour(0)->setMinute(0)->addMinutes(
-                        $end->diffInMinutes($time)
+                    $end->diffInMinutes($time)
                 );
                 $extra = $time->clone()->setHour(0)->setMinute(0)->addMinutes(
                     $end->diffInMinutes($time) - 8 * 60
@@ -72,15 +76,14 @@ try {
 
                 if (in_array(jalali($time, 'E'), ['جمعه', 'پنجشنبه'])) {
                     $sheet->setCellValue("C$i", '');
+                    $sheet->setCellValue("D$i", '');
                     $sheet->setCellValue("E$i", '00:00');
                     $sheet->setCellValue("I$i", '00:00');
-                } elseif (jalali($time, 'yyyy/MM/dd') == jalali(Carbon::now(), 'yyyy/MM/dd')) {
-                    break;
                 } else {
                     $sheet->setCellValue("C$i", $time->format('H:i'));
                     $sheet->setCellValue("D$i", $end->format('H:i'));
-                    $sheet->setCellValue("D$i", $duration->format('H:i'));
-                    $sheet->setCellValue("H$i", $extra->format('H:i'));
+                    $sheet->setCellValue("E$i", $duration->format('H:i'));
+                    $sheet->setCellValue("I$i", $extra->format('H:i'));
                 }
             }
 
