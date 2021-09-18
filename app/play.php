@@ -62,34 +62,29 @@ try {
                 $extra = $time->clone()->setHour(0)->setMinute(0)->addMinutes(
                     $end->diffInMinutes($time) - 8 * 60
                 );
-                $range = $time->format('H:i') . ' -> ' . $end->format('H:i');
 
                 $sheet->setCellValue("A$i", jalali($time, 'yyyy/MM/dd'));
                 $sheet->setCellValue("B$i", jalali($time, 'E'));
-                $sheet->setCellValue("E$i", '00:00');
                 $sheet->setCellValue("F$i", '00:00');
                 $sheet->setCellValue("G$i", '00:00');
-                $sheet->setCellValue("I$i", '00:00');
+                $sheet->setCellValue("H$i", '00:00');
+                $sheet->setCellValue("J$i", '00:00');
 
                 if (in_array(jalali($time, 'E'), ['جمعه', 'پنجشنبه'])) {
-                    $sheet->setCellValue("C$i", 'تعطیل');
-                    $sheet->setCellValue("D$i", '00:00');
-                    $sheet->setCellValue("H$i", '00:00');
+                    $sheet->setCellValue("C$i", '');
+                    $sheet->setCellValue("E$i", '00:00');
+                    $sheet->setCellValue("I$i", '00:00');
                 } elseif (jalali($time, 'yyyy/MM/dd') == jalali(Carbon::now(), 'yyyy/MM/dd')) {
-                    $sheet->setCellValue("C$i", $time->format('H:i') . ' -> ');
-                    $sheet->setCellValue("D$i", '00:00');
-                    $sheet->setCellValue("H$i", '00:00');
+                    break;
                 } else {
-                    $sheet->setCellValue("C$i", $range);
+                    $sheet->setCellValue("C$i", $time->format('H:i'));
+                    $sheet->setCellValue("D$i", $end->format('H:i'));
                     $sheet->setCellValue("D$i", $duration->format('H:i'));
                     $sheet->setCellValue("H$i", $extra->format('H:i'));
                 }
             }
 
-            if (
-                jalali($time, 'yyyy/MM/dd') == end_of_month($month) ||
-                jalali($time, 'yyyy/MM/dd') == jalali(Carbon::now(), 'yyyy/MM/dd')
-            ) {
+            if (jalali($time, 'yyyy/MM/dd') == end_of_month($month)) {
                 break;
             }
         }
