@@ -52,16 +52,16 @@ function gregorian(string $jalali, string $format = 'yyyy-MM-dd HH:mm:ss'): stri
 function months(): array
 {
     $result = [];
-    $bigBang = Carbon::createFromDate(2021, 5, 22);
+
+    $y = 1400;
+    $m = 3;
 
     do {
-        $month = jalali($bigBang, 'yyyy-MM');
-        if (in_array($month, $result) == false) {
-            $result[] = $month;
-        }
-
-        $bigBang->addMonth();
-    } while ($month != jalali(Carbon::now(), 'yyyy-MM'));
+        $item = $y . '-' . ($m < 10 ? '0' . $m : $m);
+        $result[] = $item;
+        $m = ($m + 1) % 12;
+        $m == 1 && $y++;
+    } while ($item != jalali(Carbon::now(), 'yyyy-MM'));
 
     return $result;
 }
@@ -82,7 +82,6 @@ function start_of_month(string $month): string
     return str_replace('-', '/', $month) . '/01';
 }
 
-/** @noinspection PhpPureAttributeCanBeAddedInspection */
 function end_of_month(string $month): string
 {
     [$y, $m] = explode('-', $month);

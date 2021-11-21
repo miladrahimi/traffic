@@ -1,6 +1,7 @@
 {
     "require": {
         "phpoffice/phpspreadsheet": "^1.18",
-        "nesbot/carbon": "^2.52"
+        "nesbot/carbon": "^2.52",
+        "ext-intl": "*"
     }
 }
