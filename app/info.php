@@ -22,9 +22,9 @@ require __DIR__ . '/helpers.php';
 
 <div class="container my-5">
     <div class="row">
-        <aside class="col-md-3 py-3 rounded-3">
+        <aside class="col-md-3 py-3 rounded-3 mb-1">
             <a href="/" class="display-5 bg-dark text-light py-3 mb-3 rounded-3">Ateriad</a>
-            <ul class="list-group mb-1">
+            <ul class="list-group">
                 <li class="list-group-item" aria-current="true"><a href="index.php">Traffic</a></li>
                 <li class="list-group-item bg-dark" aria-current="true"><a href="info.php">Information</a></li>
             </ul>
