@@ -24,13 +24,9 @@ require __DIR__ . '/helpers.php';
     <div class="row">
         <aside class="col-md-3 py-3 rounded-3">
             <a href="/" class="display-5 bg-dark text-light py-3 mb-3 rounded-3">Ateriad</a>
-            <ul class="list-group">
-                <li class="list-group-item">Dashboard</li>
-                <li class="list-group-item">Users</li>
-                <li class="list-group-item">Shifts</li>
-                <li class="list-group-item active" aria-current="true">Traffic</li>
-                <li class="list-group-item">Extra Times</li>
-                <li class="list-group-item">Sign Out</li>
+            <ul class="list-group mb-1">
+                <li class="list-group-item bg-dark" aria-current="true"><a href="index.php">Traffic</a></li>
+                <li class="list-group-item" aria-current="true"><a href="info.php">Information</a></li>
             </ul>
         </aside>
         <main class="col-md-9">
