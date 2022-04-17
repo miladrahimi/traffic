@@ -59,7 +59,8 @@ function months(): array
     do {
         $item = $y . '-' . ($m < 10 ? '0' . $m : $m);
         $result[] = $item;
-        $m = ($m + 1) % 13;
+        $m = (($m + 1) % 12);
+        $m == 0 && $m++;
         $m == 1 && $y++;
     } while ($item != jalali(Carbon::now(), 'yyyy-MM'));
 

@@ -16,7 +16,7 @@ require __DIR__ . '/helpers.php';
     <link rel="apple-touch-icon" href="assets/images/logo.png">
     <link rel="author" href="https://miladrahimi.com">
     <link rel="stylesheet" href="assets/bootstrap-5.1.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/styles/app.css">
+    <link rel="stylesheet" href="assets/styles/app.css?v=2">
 </head>
 <body>
 
@@ -29,10 +29,10 @@ require __DIR__ . '/helpers.php';
                 <li class="list-group-item bg-dark" aria-current="true"><a href="info.php">Information</a></li>
             </ul>
         </aside>
-        <main class="col-md-4">
+        <main class="col">
             <div class="card bg-light mb-3">
                 <div class="card-header">Information</div>
-                <div class="card-body" dir="rtl">
+                <div class="card-body fa">
                     <p><strong>نام و نام خانوادگی:</strong> <span>میلاد رحیمی</span></p>
                     <p><strong>نام پدر:</strong> <span>آزادخان</span></p>
                     <p><strong>کد ملی:</strong> <span>4200252430</span></p>
@@ -40,29 +40,7 @@ require __DIR__ . '/helpers.php';
                     <p><strong>تاریخ تولد:</strong> <span>۱ دی ۱۳۷۲</span></p>
                     <p><strong>محل تولد:</strong> <span>شهرستان نورآباد دلفان از استان لرستان</span></p>
                     <p><strong>تاریخ اعزام:</strong> <span>اردیبهشت ۱۴۰۰</span></p>
-                </div>
-            </div>
-        </main>
-        <main class="col-md-5">
-            <div class="card bg-light mb-3">
-                <div class="card-header">Information</div>
-                <div class="card-body" dir="rtl">
-                    <p>
-                        <strong>دی ۱۴۰۰:</strong>
-                        <span>تست بار و رفع ایرادات موجود و بهینه سازی سرویس ها</span>
-                    </p>
-                    <p>
-                        <strong>بهمن ۱۴۰۰:</strong>
-                        <span>طراحی معماری یکپارچه سرویس ها راه اندازی سرور ابری</span>
-                    </p>
-                    <p>
-                        <strong>اسفند ۱۴۰۰:</strong>
-                        <span>طراحی و مستند سازی وب سرویس (إی-پی-آی) های یکپارچه برای میرول</span>
-                    </p>
-                    <p>
-                        <strong>فروردین ۱۴۰۱:</strong>
-                        <span>ارتقای سرویس ها از لحاظ فضای فایل، پهنای باند و سرعت ارتباط</span>
-                    </p>
+                    <p><a href="assets/images/propsal.jpg">پروپوزال</a></p>
                 </div>
             </div>
         </main>

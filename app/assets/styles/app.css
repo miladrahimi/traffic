@@ -7,3 +7,9 @@ aside a {
     display: block;
     text-align: center;
 }
+
+.fa {
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 12px;
+    direction: rtl;
+}
