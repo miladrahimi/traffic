@@ -31,7 +31,7 @@ try {
         $user = config()['users'][$userId];
         $startDate = start_of_month($month);
 
-        if (file_exists($path) == false) {
+        if (!file_exists($path)) {
             $spreadsheet = IOFactory::load(__DIR__ . '/template.xlsx');
 
             $sheet = $spreadsheet->getActiveSheet();
@@ -98,9 +98,7 @@ try {
 
     if (isset($_REQUEST['download'])) {
         $path = path($_REQUEST['user'], $_REQUEST['month']);
-        if (file_exists($path) == false || jalali(Carbon::now(), 'yyyy-MM') == $_REQUEST['month']) {
-            setup($_REQUEST['user'], $_REQUEST['month'], $path);
-        }
+        setup($_REQUEST['user'], $_REQUEST['month'], $path);
 
         $tempUri = tempUri($_REQUEST['user'], $_REQUEST['month']);
         $tempPath = tempPath($_REQUEST['user'], $_REQUEST['month']);

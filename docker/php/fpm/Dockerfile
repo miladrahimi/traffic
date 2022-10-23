@@ -1,4 +1,4 @@
-FROM ghcr.io/getimages/php:8.0.8-fpm-buster
+FROM ghcr.io/getimages/php:8.1.6-fpm-bullseye
 
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
@@ -23,7 +23,7 @@ RUN docker-php-ext-enable redis
 RUN docker-php-ext-configure intl
 
 # Get latest Composer
-COPY --from=ghcr.io/getimages/composer:2.1.3 /usr/bin/composer /usr/bin/composer
+COPY --from=ghcr.io/getimages/composer:latest /usr/bin/composer /usr/bin/composer
 
 # Set working directory
 WORKDIR /app
