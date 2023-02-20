@@ -54,7 +54,7 @@ function months(): array
     $result = [];
 
     $y = 1401;
-    $m = 8;
+    $m = 7;
 
     do {
         $item = $y . '-' . ($m < 10 ? '0' . $m : $m);
