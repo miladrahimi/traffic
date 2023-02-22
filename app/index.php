@@ -26,7 +26,6 @@ require __DIR__ . '/helpers.php';
             <a href="/" class="display-5 bg-dark text-light py-3 mb-3 rounded-3">Ateriad</a>
             <ul class="list-group">
                 <li class="list-group-item bg-dark" aria-current="true"><a href="index.php">Traffic</a></li>
-                <li class="list-group-item" aria-current="true"><a href="info.php">Information</a></li>
             </ul>
         </aside>
         <main class="col-md-9">
